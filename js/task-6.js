@@ -21,6 +21,7 @@ destroyBtn.addEventListener("click", destroyBoxes);
 
 function createBoxes(amount) {
   boxesContainer.innerHTML = "";
+  let fragment = document.createDocumentFragment();
   for (let i = 0; i < amount; i++) {
     const box = document.createElement("div");
     box.classList.add("box");
@@ -28,8 +29,9 @@ function createBoxes(amount) {
     box.style.width = `${size}px`;
     box.style.height = `${size}px`;
     box.style.backgroundColor = getRandomHexColor();
-    boxesContainer.appendChild(box);
+    fragment.appendChild(box);
   }
+  boxesContainer.appendChild(fragment);
 }
 
 function destroyBoxes() {
